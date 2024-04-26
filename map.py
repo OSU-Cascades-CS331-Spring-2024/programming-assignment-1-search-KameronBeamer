@@ -1,3 +1,4 @@
+# Acts as our graph, using the data for individual cities as our nodes
 import re
 from city import City
 
@@ -64,3 +65,10 @@ class Map:
             neighbor_dict[name] = int(distance)
 
         return neighbor_dict
+    
+    def get_city(self, city):
+        return self.cities[city]
+    
+    def get_city_neighbors(self, city):
+        current_city = self.get_city(city)
+        return current_city.get_neighbors()
